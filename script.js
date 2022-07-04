@@ -8,9 +8,12 @@ function fillShape(id) {
     } else {
         currentShape = 'cross';
     }
-    fields[id] = currentShape;
-    draw();
-    checkForWin();
+    if (!fields[id]) {
+        fields[id] = currentShape;
+        draw();
+        checkForWin();
+    }
+    
 }
 
 
