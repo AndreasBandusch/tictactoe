@@ -1,7 +1,10 @@
 body {
+    margin: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center
+    justify-content: center;
+    height: 100vh;
 }
 
 table {
@@ -35,9 +38,11 @@ td {
     border: 5px solid black;
     cursor: pointer;
 }
+
 td:hover {
     background-color: rgba(159, 221, 161, 0.2);
 }
+
 .shape {
     position: absolute;
     left: 26px;
@@ -45,6 +50,43 @@ td:hover {
     width: 80px;
     height: 80px;
 }
+
 .d-none {
     display: none;
+}
+
+.player-panel {
+    display: flex;
+    font-size: 32px;
+    margin-bottom: 32px;
+}
+
+.player-panel div {
+    display: flex;
+    align-items: center;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.player-panel img {
+    width: 60px;
+    height: 60px;
+    margin-right: 16px;
+}
+
+.player-inaktive {
+    opacity: 0.2;
+}
+
+.horizontal-line {
+    position: absolute;
+    height: 10px;
+    width: 350px;
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: scaleX(0.0);
+    transition: transform 225ms ease-in-out;
+}
+
+.make-vertical {
+    transform: rotate(90deg) scaleX(0.0);
 }
