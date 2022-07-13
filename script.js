@@ -18,7 +18,8 @@ function fillShape(id) {
         }  
         fields[id] = currentShape;
         draw();
-        checkForWin();     
+        checkForWin();  
+        // Play Sound
    }  
 }
 

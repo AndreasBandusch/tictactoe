@@ -38,7 +38,7 @@ td {
     position: relative;
     width: 133px;
     height: 133px;
-    border: 8px solid rgba(168, 218, 220, 0.5);
+    border: 15px solid rgba(168, 218, 220, 0.5);
     cursor: pointer;
 }
 
