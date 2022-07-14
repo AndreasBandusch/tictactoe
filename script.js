@@ -46,11 +46,11 @@ function checkForWin() {
 }
 
 function showWinnerScreen() {
-    gameOver = true;
-    setTimeout(function () {
-        document.getElementById('game-over').classList.remove('d-none');
-        document.getElementById('restart-btn').classList.remove('d-none');
-    }, 1000);
+    // gameOver = true;
+    // setTimeout(function () {
+    //     document.getElementById('game-over').classList.remove('d-none');
+    //     document.getElementById('restart-btn').classList.remove('d-none');
+    // }, 1000);
 }
 
 

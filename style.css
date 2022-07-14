@@ -10,8 +10,8 @@ body {
 
 
 table {
-    width: 500px;
-    height: 500px;
+    width: 510px;
+    height: 510px;
     border-collapse: collapse;
 
 }
@@ -34,8 +34,8 @@ tr td:last-child {
 
 td {
     position: relative;
-    width: 133px;
-    height: 133px;
+    width: 170px;
+    height: 170px;
     border: 15px solid rgba(69, 123, 157, 0.3);
     cursor: pointer;
 }
@@ -46,8 +46,8 @@ td:hover {
 
 .shape {
     position: absolute;
-    left: 26px;
-    top: 26px;
+    bottom: calc(50% - 50px);
+    left: calc(50% - 50px);
     width: 100px;
     height: 100px;
 }
@@ -88,6 +88,34 @@ td:hover {
     transition: transform 225ms ease-in-out;
     z-index: 100;
 }
+
+/* Horizontale Linen */
+#line-0,
+#line-1,
+#line-2 {
+    top: 70px;
+    right: -153px
+}
+
+/* Vertikale Linen */
+#line-3,
+#line-4,
+#line-5 {
+    top: 70px;
+    left: -160px;
+}
+
+#line-6, #line-7 {
+    width: 648px;
+    top: 81px;
+    right: -244px;
+    transform: rotate(47deg) scaleX(0.0);
+}
+
+#line-7 {
+    transform: rotate(-47deg) scaleX(0.0);
+}
+
 
 .make-vertical {
     transform: rotate(90deg) scaleX(0.0);
@@ -130,4 +158,56 @@ td:hover {
 
 .restart-btn:hover {
     background-color: #463c7d;
+}
+
+@media (max-width: 520px) {
+    table {
+        width: 399px;
+        height: 399px;
+    }
+    td {
+        width: 133px;
+        height: 133px;
+    }
+
+    .shape {
+        top: calc(50% - 40px);
+        left: calc(50% - 40px);
+        width: 80px;
+        height: 80px;
+    }
+
+    .horizontal-line {
+        /* position: absolute;
+        height: 10px; */
+        width: 376px;
+
+    }
+
+    /* Horizontale Linen */
+    #line-0,
+    #line-1,
+    #line-2 {
+        top: 62px;
+        right: -125px
+    }
+
+    /* Vertikale Linen */
+    #line-3,
+    #line-4,
+    #line-5 {
+        top: 62px;
+        left: -127px;
+    }
+
+    #line-6, #line-7 {
+        width: 518px;
+        top: 63px;
+        right: -197px;
+        transform: rotate(47deg) scaleX(0.0);
+    }
+
+    #line-7 {
+        transform: rotate(-45deg) scaleX(0.0);
+    }
 }
