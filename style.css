@@ -5,16 +5,34 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: rgba(241, 250, 238, 0.4);
+     
+    
+    background-color: rgba(241, 250, 238, 0.4); 
 }
 
 
 table {
-    width: 510px;
-    height: 510px;
+    width: 399px;
+    height: 399px;
     border-collapse: collapse;
-
 }
+td {
+    position: relative;
+    width: 133px;
+    height: 133px;
+    border: 15px solid rgba(69, 123, 157, 0.3);
+    cursor: pointer;
+}
+
+.shape {
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+    width: 100px;
+    height: 100px;
+}
+
+
 
 tr:first-child td {
     border-top: 0;
@@ -32,25 +50,13 @@ tr td:last-child {
     border-right: 0;
 }
 
-td {
-    position: relative;
-    width: 170px;
-    height: 170px;
-    border: 15px solid rgba(69, 123, 157, 0.3);
-    cursor: pointer;
-}
+
 
 td:hover {
     background-color: rgba(69, 123, 157, 0.1);
 }
 
-.shape {
-    position: absolute;
-    bottom: calc(50% - 50px);
-    left: calc(50% - 50px);
-    width: 100px;
-    height: 100px;
-}
+
 
 .d-none {
     display: none;
@@ -58,8 +64,10 @@ td:hover {
 
 .player-panel {
     display: flex;
-    font-size: 32px;
+    font-size: 24px;
+    font-weight: bold;
     margin-bottom: 32px;
+   
 }
 
 .player-panel div {
@@ -72,7 +80,7 @@ td:hover {
 .player-panel img {
     width: 60px;
     height: 60px;
-    margin-right: 16px;
+    margin-right: 8px;
 }
 
 .player-inaktive {
@@ -82,11 +90,16 @@ td:hover {
 .horizontal-line {
     position: absolute;
     height: 10px;
-    width: 490px;
+    width: 380px;
     background-color: rgba(69, 123, 157, 0.7);
     transform: scaleX(0.0);
     transition: transform 225ms ease-in-out;
     z-index: 100;
+}
+
+.make-vertical {
+    transform: rotate(90deg) scaleX(0.0);
+    width: 400px;
 }
 
 /* Horizontale Linen */
@@ -94,21 +107,21 @@ td:hover {
 #line-1,
 #line-2 {
     top: calc(50% - 5px);
-    right: calc(50% - 245px);
+    right: calc(50% - 190px);
 }
 
 /* Vertikale Linen */
 #line-3,
 #line-4,
 #line-5 {
-    top: 70px;
-    left: -160px;
+    top: calc(50% - 5px);
+    left: calc(50% - 200px)
 }
 
 #line-6, #line-7 {
-    width: 648px;
-    top: 81px;
-    right: -244px;
+    width: 500px;
+    top: calc(50% - 5px);
+    right: calc(50% - 250px);
     transform: rotate(47deg) scaleX(0.0);
 }
 
@@ -117,9 +130,7 @@ td:hover {
 }
 
 
-.make-vertical {
-    transform: rotate(90deg) scaleX(0.0);
-}
+
 
 .game-over {
     position: absolute;
@@ -160,27 +171,36 @@ td:hover {
     background-color: #463c7d;
 }
 
-@media (max-width: 520px) {
+@media (max-width: 400px) {
     table {
-        width: 399px;
-        height: 399px;
+        width: 279px;
+        height: 297px; 
     }
+
     td {
-        width: 133px;
-        height: 133px;
+        width: 93px;
+        height: 93px;
     }
 
     .shape {
-        top: calc(50% - 40px);
-        left: calc(50% - 40px);
-        width: 80px;
-        height: 80px;
+        top: calc(50% - 35px);
+        left: calc(50% - 35px);
+        width: 70px;
+        height: 70px;
     }
 
-    .horizontal-line {
-        /* position: absolute;
-        height: 10px; */
-        width: 376px;
+   .player-panel {
+    font-size: 16px;
+   }
 
+    .player-panel img {
+        height: 40px;
+        width: 40px;
+    }
+    .player-panel div {
+        margin-left: 8px;
+    margin-right: 8px;
+    }
     
+   
 }
