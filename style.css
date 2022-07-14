@@ -82,7 +82,7 @@ td:hover {
 .horizontal-line {
     position: absolute;
     height: 10px;
-    width: 470px;
+    width: 490px;
     background-color: rgba(69, 123, 157, 0.7);
     transform: scaleX(0.0);
     transition: transform 225ms ease-in-out;
@@ -93,8 +93,8 @@ td:hover {
 #line-0,
 #line-1,
 #line-2 {
-    top: 70px;
-    right: -153px
+    top: calc(50% - 5px);
+    right: calc(50% - 245px);
 }
 
 /* Vertikale Linen */
@@ -146,7 +146,7 @@ td:hover {
 .restart-btn {
     position: absolute;
     bottom: 130px;
-    border: 1px solid rbga (0, 0, 0, 0.5);
+    border: 1px solid rbga(0, 0, 0, 0.5);
     background-color: #1c0b7f;
     z-index: 9999;
     width: 300px;
@@ -182,32 +182,5 @@ td:hover {
         height: 10px; */
         width: 376px;
 
-    }
-
-    /* Horizontale Linen */
-    #line-0,
-    #line-1,
-    #line-2 {
-        top: 62px;
-        right: -125px
-    }
-
-    /* Vertikale Linen */
-    #line-3,
-    #line-4,
-    #line-5 {
-        top: 62px;
-        left: -127px;
-    }
-
-    #line-6, #line-7 {
-        width: 518px;
-        top: 63px;
-        right: -197px;
-        transform: rotate(47deg) scaleX(0.0);
-    }
-
-    #line-7 {
-        transform: rotate(-45deg) scaleX(0.0);
-    }
+    
 }
