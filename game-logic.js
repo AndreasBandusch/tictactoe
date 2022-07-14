@@ -1,4 +1,13 @@
 function gameLogic() {
+    let winner;
+    winner = checkXlines(winner);
+    winner = checkYlines(winner);
+    winner = checkDeglines(winner);
+    return winner;
+}
+
+
+function checkXlines(winner) {
     if (fields[0] == fields[1] && fields[1] == fields[2] && fields[0]) {
         winner = fields[0];
         document.getElementById('line-0').style.transform = 'scaleX(1)';
@@ -11,6 +20,11 @@ function gameLogic() {
         winner = fields[6];
         document.getElementById('line-2').style.transform = 'scaleX(1)';
     }
+    return winner;
+}
+
+
+function checkYlines(winner) {
     if (fields[0] == fields[3] && fields[3] == fields[6] && fields[0]) {
         winner = fields[0];
         document.getElementById('line-3').style.transform = 'rotate(90deg) scaleX(1)';
@@ -23,6 +37,11 @@ function gameLogic() {
         winner = fields[2];
         document.getElementById('line-5').style.transform = 'rotate(90deg) scaleX(1)';
     }
+    return winner;
+}
+
+
+function checkDeglines(winner) {
     if (fields[0] == fields[4] && fields[4] == fields[8] && fields[8]) {
         winner = fields[0];
         document.getElementById('line-6').style.transform = 'rotate(45deg) scaleX(1)';
@@ -31,4 +50,5 @@ function gameLogic() {
         winner = fields[2];
         document.getElementById('line-7').style.transform = 'rotate(-45deg) scaleX(1)';
     }
+    return winner;
 }

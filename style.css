@@ -5,7 +5,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #F1FAEE;
+    background-color: rgba(241, 250, 238, 0.4);
 }
 
 
@@ -13,10 +13,8 @@ table {
     width: 500px;
     height: 500px;
     border-collapse: collapse;
-    
+
 }
-
-
 
 tr:first-child td {
     border-top: 0;
@@ -38,7 +36,7 @@ td {
     position: relative;
     width: 133px;
     height: 133px;
-    border: 15px solid rgba(168, 218, 220, 0.5);
+    border: 15px solid rgba(69, 123, 157, 0.3);
     cursor: pointer;
 }
 
@@ -84,10 +82,10 @@ td:hover {
 .horizontal-line {
     position: absolute;
     height: 10px;
-    width: 350px;
-    background-color: rgba(168, 218, 220, 0.5);
-    /* transform: scaleX(0.0);
-    transition: transform 225ms ease-in-out; */
+    width: 470px;
+    background-color: rgba(69, 123, 157, 0.7);
+    transform: scaleX(0.0);
+    transition: transform 225ms ease-in-out;
     z-index: 100;
 }
 
@@ -99,7 +97,7 @@ td:hover {
     position: absolute;
     left: 0;
     right: 0;
-    z-index: 2;
+    z-index: 999;
     width: 100%;
     animation: zoomIn 225ms ease-in-out;
 }
@@ -108,8 +106,9 @@ td:hover {
     from {
         opacity: 0;
         transform: scale(0);
-        
+
     }
+
     to {
         opacity: 1;
         transform: scale(0);
@@ -121,7 +120,7 @@ td:hover {
     bottom: 130px;
     border: 1px solid rbga (0, 0, 0, 0.5);
     background-color: #1c0b7f;
-    z-index: 2;
+    z-index: 9999;
     width: 300px;
     height: 100px;
     color: white;
