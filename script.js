@@ -1,7 +1,7 @@
 let fields = [];
 let currentShape = 'cross'
 let gameOver = false;
-let unentsch = 0;
+
 
 
 function fillShape(id) {
@@ -16,13 +16,13 @@ function fillShape(id) {
             document.getElementById('player-2').classList.add('player-inaktive');
         }
         fields[id] = currentShape;
-        draw();
+        drawField();
         checkForWin();
     }
 }
 
 
-function draw() {
+function drawField() {
     for (let i = 0; i < fields.length; i++) {
         if (fields[i] == 'circle') {
             document.getElementById(`circle-${i}`).classList.remove('d-none');
@@ -37,36 +37,48 @@ function draw() {
 function checkForWin() {
     let winner = gameLogic();
     if (winner) {
-        showWinnerScreen();
+        showEndScreen('winner');
     }
-    if (fields.filter(String).length == 9) {
-        showDrawScreen();
+    if (fields.filter(String).length == 9 && !winner) {
+        showEndScreen('draw');
     }
-
 }
 
-function showWinnerScreen() {
+function showEndScreen(winOrDraw) {
     gameOver = true;
+    let winner;
+    let result;
+
+    if (currentShape == 'circle') {
+        winner = 1;
+    } else {
+        winner = 2;
+    }
+    if (winOrDraw == 'winner') {
+        result = `Spieler ${winner} hat gewonnen`;
+    } else {
+        result = 'Unentschieden!!!';
+    }
     setTimeout(function () {
         document.getElementById('game-over').classList.remove('d-none');
         document.getElementById('game-over').classList.add('game-over');
         document.getElementById('game-panel').classList.add('make-transparent');
         document.getElementById('player-panel').classList.add('make-transparent');
-        // document.getElementById('restart-btn').classList.remove('d-none');
+        document.getElementById('result').innerText = result;
     }, 1000);
 }
 
 
-function showDrawScreen() {
-    alert('Spiel unentschieden');
-}
+
 
 
 function restart() {
     gameOver = false;
     fields = [];
     document.getElementById('game-over').classList.add('d-none');
-    document.getElementById('restart-btn').classList.add('d-none');
+    document.getElementById('game-over').classList.remove('game-over');
+    document.getElementById('game-panel').classList.remove('make-transparent');
+    document.getElementById('player-panel').classList.remove('make-transparent');
     for (let i = 0; i < 8; i++) {
         document.getElementById('line-' + i).style.transform = 'scaleX(0.0)'
     }
