@@ -12,9 +12,12 @@
 </head>
 
 <body>
-    <img src="./img/game-over.png" id="game-over" class="d-none game-over">
-    <button id="restart-btn" class="restart-btn d-none" onclick="restart()">Restart</button>
-    <div class="player-panel">
+    <div id="game-over" class="d-none">
+        <div class="game-over-inner">
+            Player&nbsp;<span id="winner"></span>hat gewonnen
+        </div>
+    </div>
+    <div id="player-panel" class="player-panel">
         <div id="player-1">
             <img src="./img/circle.png">Player 1
         </div>
@@ -22,7 +25,7 @@
             <img src="./img/cross.png">Player 2
         </div>
     </div>
-    <table>
+    <table id="game-panel">
         <tr>
             <td onclick="fillShape(0)">
                 <img id="circle-0" class="shape d-none" src="./img/circle.png">
