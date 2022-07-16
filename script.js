@@ -51,6 +51,14 @@ function checkWinOrDraw() {
 
 function createResult(result) {
     gameOver = true;
+    result = myfunction(result);
+    setTimeout(function () {
+        showEndScreen(result);
+    }, 1000);
+}
+
+
+function myfunction(result) {
     let winner;
     if (currentShape == 'circle') {
         winner = 1;
@@ -62,9 +70,7 @@ function createResult(result) {
     } else {
         result = 'Unentschieden!';
     }
-    setTimeout(function () {
-        showEndScreen(result);
-    }, 1000);
+    return result;
 }
 
 
