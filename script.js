@@ -3,21 +3,25 @@ let currentShape = 'cross'
 let gameOver = false;
 
 
-
 function fillShape(id) {
     if (!fields[id] && !gameOver) {
-        if (currentShape == 'cross') {
-            currentShape = 'circle';
-            document.getElementById('player-1').classList.add('player-inaktive');
-            document.getElementById('player-2').classList.remove('player-inaktive');
-        } else {
-            currentShape = 'cross';
-            document.getElementById('player-1').classList.remove('player-inaktive');
-            document.getElementById('player-2').classList.add('player-inaktive');
-        }
+        switchActiveGamer();
         fields[id] = currentShape;
         drawField();
-        checkForWin();
+        checkWinOrDraw();
+    }
+}
+
+
+function switchActiveGamer() {
+    if (currentShape == 'cross') {
+        currentShape = 'circle';
+        document.getElementById('player-1').classList.add('player-inaktive');
+        document.getElementById('player-2').classList.remove('player-inaktive');
+    } else {
+        currentShape = 'cross';
+        document.getElementById('player-1').classList.remove('player-inaktive');
+        document.getElementById('player-2').classList.add('player-inaktive');
     }
 }
 
@@ -34,51 +38,62 @@ function drawField() {
 }
 
 
-function checkForWin() {
+function checkWinOrDraw() {
     let winner = gameLogic();
     if (winner) {
-        showEndScreen('winner');
+        createResult('winner');
     }
     if (fields.filter(String).length == 9 && !winner) {
-        showEndScreen('draw');
+        createResult('draw');
     }
 }
 
-function showEndScreen(winOrDraw) {
+
+function createResult(result) {
     gameOver = true;
     let winner;
-    let result;
-
     if (currentShape == 'circle') {
         winner = 1;
     } else {
         winner = 2;
     }
-    if (winOrDraw == 'winner') {
-        result = `Spieler ${winner} hat gewonnen`;
+    if (result == 'winner') {
+        result = `Player ${winner} hat gewonnen`;
     } else {
-        result = 'Unentschieden!!!';
+        result = 'Unentschieden!';
     }
     setTimeout(function () {
-        document.getElementById('game-over').classList.remove('d-none');
-        document.getElementById('game-over').classList.add('game-over');
-        document.getElementById('game-panel').classList.add('make-transparent');
-        document.getElementById('player-panel').classList.add('make-transparent');
-        document.getElementById('result').innerText = result;
+        showEndScreen(result);
     }, 1000);
 }
 
 
+function showEndScreen(result) {
+    document.getElementById('game-over').classList.remove('d-none');
+    document.getElementById('game-over').classList.add('game-over');
+    document.getElementById('game-panel').classList.add('make-transparent');
+    document.getElementById('player-panel').classList.add('make-transparent');
+    document.getElementById('result').innerText = result;
+}
 
+
+function closeEndScreen() {
+    document.getElementById('game-over').classList.add('d-none');
+    document.getElementById('game-over').classList.remove('game-over');
+    document.getElementById('game-panel').classList.remove('make-transparent');
+    document.getElementById('player-panel').classList.remove('make-transparent');
+}
 
 
 function restart() {
     gameOver = false;
     fields = [];
-    document.getElementById('game-over').classList.add('d-none');
-    document.getElementById('game-over').classList.remove('game-over');
-    document.getElementById('game-panel').classList.remove('make-transparent');
-    document.getElementById('player-panel').classList.remove('make-transparent');
+    closeEndScreen();
+    hideGameItems();
+}
+
+
+function hideGameItems() {
     for (let i = 0; i < 8; i++) {
         document.getElementById('line-' + i).style.transform = 'scaleX(0.0)'
     }

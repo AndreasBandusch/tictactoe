@@ -36,8 +36,6 @@ td {
     height: 100px;
 }
 
-
-
 tr:first-child td {
     border-top: 0;
 }
@@ -54,13 +52,9 @@ tr td:last-child {
     border-right: 0;
 }
 
-
-
 td:hover {
     background-color: rgba(69, 123, 157, 0.1);
 }
-
-
 
 .d-none {
     display: none;
@@ -199,8 +193,13 @@ td:hover {
 }
 
 @media (max-width: 800px) {
+    .game-over {
+        top: calc(50vh - 12.5vh);
+    }
+
     .game-over-inner {
         font-size: 32px;
+        height: 25vh;
     }
 }
 
