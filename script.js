@@ -51,14 +51,14 @@ function checkWinOrDraw() {
 
 function createResult(result) {
     gameOver = true;
-    result = myfunction(result);
+    result = evalResult(result);
     setTimeout(function () {
         showEndScreen(result);
     }, 1000);
 }
 
 
-function myfunction(result) {
+function evalResult(result) {
     let winner;
     if (currentShape == 'circle') {
         winner = 1;
